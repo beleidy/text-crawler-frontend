@@ -110,7 +110,10 @@ class App extends Component {
 
         {siteText ? (
           <div>
-            <div className="relative text-grey-darkest bg-grey-lightest rounded shadow border border-solid border-indigo-lighter my-8 p-12">
+            <div
+              className="relative text-grey-darkest bg-grey-lightest rounded shadow border border-solid border-indigo-lighter my-8 p-12"
+              style={{ whiteSpace: "pre-wrap" }}
+            >
               <button
                 className="absolute text-sm text-black font-black hover:bg-indigo bg-indigo-lighter px-2 py-2 rounded pin-r pin-t"
                 onClick={this.copyToClipboard}
