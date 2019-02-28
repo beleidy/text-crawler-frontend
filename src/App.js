@@ -6,7 +6,7 @@ import io from "socket.io-client";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.socket = io({ path: "/backend" });
+    this.socket = io("https://crawler.amr.elbeleidy.me/backend");
     this.getSiteText = this.getSiteText.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.copyToClipboard = this.copyToClipboard.bind(this);
