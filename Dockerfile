@@ -5,7 +5,7 @@ COPY package*.json /app/
 RUN  npm install
 
 COPY . .
-# ENV REACT_APP_BACKEND_ADDRESS='https://crawler.amr.elbeleidy.me/backend'
+ENV REACT_APP_BACKEND_ADDRESS='https://crawler-socket.amr.elbeleidy.me/'
 RUN npm run build
 
 FROM node:alpine
