@@ -10,12 +10,23 @@ class App extends Component {
     this.getSiteText = this.getSiteText.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.copyToClipboard = this.copyToClipboard.bind(this);
+    this.socketEvents = {
+      GETSITETEXT: "GetSiteText",
+      STATUSUPDATE: "StatusUpdate"
+    };
   }
 
   state = {
     siteTextObject: {},
-    uriToFetch: ""
+    uriToFetch: "",
+    status: ""
   };
+
+  componentDidMount() {
+    this.socket.on(this.socketEvents.STATUSUPDATE, status =>
+      this.setState({ status: status })
+    );
+  }
 
   getSiteText(e) {
     e.preventDefault();
@@ -71,6 +82,9 @@ class App extends Component {
             </button>
           </div>
         </form>
+        <div className="mx-auto my-8 text-center">
+          Status: {this.state.status}
+        </div>
         <div className="pt-8">
           <div
             className={(domain ? "text-grey-darkest " : "text-grey ") + "my-2 "}
