@@ -6,7 +6,9 @@ import io from "socket.io-client";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.socket = io.connect("localhost:8000");
+    this.socket = io.connect(
+      `${process.env.REACT_APP_BACKEND_ADDRESS || "localhost:8000"}`
+    );
     this.getSiteText = this.getSiteText.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.copyToClipboard = this.copyToClipboard.bind(this);
@@ -91,7 +93,7 @@ class App extends Component {
           >
             Domain:{" "}
             {domain ? (
-              <span className="bg-indigo-lightest px-1 py-1"> domain </span>
+              <span className="bg-indigo-lightest px-1 py-1"> {domain} </span>
             ) : (
               " - "
             )}
