@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "mobx": "^4.9.4",
+    "mobx-react-lite": "^1.2.0",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "react-scripts": "2.1.5",
