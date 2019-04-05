@@ -17,7 +17,7 @@ class CrawlStore {
   crawledSite = {
     domain: null,
     uri: null,
-    text: null,
+    siteText: null,
     lastUpdated: null
   };
 
@@ -25,7 +25,7 @@ class CrawlStore {
 
   getSiteText(uri) {
     this.socket.emit(
-      GETSITETEXT,
+      this.socketEvents.GETSITETEXT,
       uri,
       data => (this.crawledSite = data[0]._source)
     );
